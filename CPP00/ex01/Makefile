@@ -1,0 +1,56 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: oztozdem <oztozdem@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/07/17 15:47:47 by oztozdem          #+#    #+#              #
+#    Updated: 2025/07/24 17:52:35 by oztozdem         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME =		PhoneBook
+CC =		@c++
+CFLAGS =	-Wall -Wextra -Werror -std=c++98
+OBJS =		$(SRCS:.cpp=.o)
+OBJS_DIR =	objs/
+OBJS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJS))
+SRCS =		main.cpp Contact.cpp PhoneBook.cpp
+
+GREEN =		\033[1;32m
+YELLOW =	\033[1;33m
+BLUE =		\033[1;34m
+RED =		\033[1;31m
+RESET =		\033[0m
+BOLD =		\033[1m
+
+all:		$(OBJS_DIR) ${NAME}
+
+${NAME}:	${OBJS_PREFIXED}
+			@echo "$(BLUE)$(BOLD)Compiling ${NAME}... 🛠️$(RESET)"
+			${CC} ${CFLAGS} -o ${NAME} ${OBJS_PREFIXED}
+			@echo "$(GREEN)$(BOLD)${NAME} compiled 🚀$(RESET)"
+
+$(OBJS_DIR):
+			@mkdir -p $(OBJS_DIR)
+
+$(OBJS_DIR)%.o: %.cpp
+			$(CC) $(CFLAGS) -o $@ -c $<
+
+clean:
+			@echo "$(RED)$(BOLD)Cleaning up ${NAME} object files 🧹$(RESET)"
+			@rm -rf $(OBJS_DIR)
+			@echo "$(GREEN)$(BOLD)${NAME} object files removed! ✅$(RESET)"
+
+fclean:		clean
+			@echo "$(RED)$(BOLD)Deleting ${NAME} 🗑️$(RESET)"
+			@rm -rf ${NAME}
+			@echo "$(GREEN)$(BOLD)${NAME} deleted! ❌$(RESET)"
+
+re:			
+			@echo "$(YELLOW)$(BOLD)Recompiling ${NAME} 🔄$(RESET)"
+			@$(MAKE) -s fclean all
+			@echo "$(YELLOW)$(BOLD)Done recompiling! ✅$(RESET)"
+
+.PHONY:		all clean fclean re
