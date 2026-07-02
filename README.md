@@ -1,58 +1,173 @@
-# Modules CPP - École 42
+# 42 C++ Modules (CPP00-CPP09)
 
-Repository contenant les modules CPP de l'École 42, couvrant les concepts fondamentaux de la programmation orientée objet en C++.
+This repository contains my full 42 School C++ journey, from the first object-oriented basics to STL-heavy algorithmic exercises.
 
----
+All projects are written in **C++98** and follow the 42 coding constraints.
 
-## 📚 CPP00 - Introduction au C++
+## What This Repository Covers
 
-**Exercices** : Megaphone • PhoneBook • Account
+The modules are progressive:
 
-**Notions** : Classes et objets, constructeurs/destructeurs, encapsulation, flux I/O
+1. Build strong C++ fundamentals.
+2. Master object-oriented design (encapsulation, inheritance, polymorphism).
+3. Learn memory safety, copy semantics, and exception handling.
+4. Use templates, containers, and algorithms from the Standard Library.
+5. Solve practical parsing and performance problems.
 
+## Repository Structure
 
-## 🧠 CPP01 - Gestion de la mémoire
+Each module contains one or more exercises:
 
-**Exercices** : Zombie • Zombie horde • Pointeurs/Références • Weapon • String replacement • Harl
+- `CPP00/ex00` to `CPP00/ex02`
+- `CPP01/ex00` to `CPP01/ex06`
+- `CPP02/ex00` to `CPP02/ex02`
+- `CPP03/ex00` to `CPP03/ex02`
+- `CPP04/ex00` to `CPP04/ex03`
+- `CPP05/ex00` to `CPP05/ex03`
+- `CPP06/ex00` to `CPP06/ex02`
+- `CPP07/ex00` to `CPP07/ex02`
+- `CPP08/ex00` to `CPP08/ex02`
+- `CPP09/ex00` to `CPP09/ex02`
 
-**Notions** : Allocation dynamique (`new`/`delete`), pointeurs vs références, gestion mémoire stack/heap
+## Module-by-Module Learning Goals
 
----
+### CPP00 - C++ Basics
 
-## 🔢 CPP02 - Surcharge d'opérateurs
+**Exercises:** Megaphone, PhoneBook, Account  
+**What you learn:**
 
-**Exercices** : Forme canonique orthodoxe • Nombres à virgule fixe • Opérateurs arithmétiques
+- Basic syntax differences from C
+- Classes and objects
+- Member functions and visibility (public/private)
+- Constructors and destructors
+- Streams (`std::cin`, `std::cout`, formatting)
 
-**Notions** : Constructeur de copie, opérateur d'affectation, surcharge d'opérateurs, conversions de types
+### CPP01 - Memory and References
 
----
+**Exercises:** Zombie, Zombie Horde, references/pointers, Weapon, file replace, Harl  
+**What you learn:**
 
-## ⚔️ CPP03 - Héritage
+- Stack vs heap allocation
+- `new` / `delete` lifecycle
+- References vs pointers and when to use each
+- Basic file manipulation
+- Better class design with clear ownership rules
 
-**Exercices** : ClapTrap • ScavTrap • FragTrap
+### CPP02 - Canonical Form and Operator Overloading
 
-**Notions** : Héritage public, classes de base/dérivées, membres protégés, ordre constructeurs/destructeurs
+**Exercises:** Fixed-point numbers and operators  
+**What you learn:**
 
----
+- Orthodox Canonical Form
+- Copy constructor and copy assignment operator
+- Operator overloading (`+`, `-`, comparison, increment, etc.)
+- Static member functions
+- Precise value representation with fixed-point arithmetic
 
-## 🐾 CPP04 - Polymorphisme et classes abstraites
+### CPP03 - Inheritance
 
-**Exercices** : Animal polymorphe • Brain (deep copy) • Classes abstraites • Interface Materia
+**Exercises:** ClapTrap, ScavTrap, FragTrap  
+**What you learn:**
 
-**Notions** : Fonctions virtuelles, polymorphisme, classes abstraites, destructeur virtuel, interfaces
+- Base/derived class relationships
+- Constructor/destructor chaining
+- Method overriding
+- Protected members and class extension design
 
-## 🚀 Utilisation
+### CPP04 - Polymorphism and Abstract Interfaces
+
+**Exercises:** Animal hierarchy, Brain deep copy, Materia system  
+**What you learn:**
+
+- Runtime polymorphism with `virtual`
+- Importance of virtual destructors
+- Abstract classes and interfaces
+- Deep copy vs shallow copy in composed objects
+- Interface-driven architecture
+
+### CPP05 - Exceptions and Bureaucracy Model
+
+**Exercises:** Bureaucrat, Form/AForm, concrete forms, Intern factory  
+**What you learn:**
+
+- Exception classes and error signaling
+- Grade-bound invariants and defensive programming
+- Nested class responsibilities
+- Factory-style object creation (Intern)
+- Executable workflows with validation steps
+
+### CPP06 - C++ Casts and Type Handling
+
+**Exercises:** ScalarConverter, Serializer, RTTI identification  
+**What you learn:**
+
+- Scalar conversion edge cases and literal parsing
+- Serialization with `reinterpret_cast`
+- Runtime type identification (`dynamic_cast`)
+- Safe cast selection and conversion limits
+
+### CPP07 - Templates
+
+**Exercises:** `whatever`, `iter`, `Array` template  
+**What you learn:**
+
+- Function templates
+- Class templates
+- Generic programming patterns
+- Template implementation organization (`.hpp` / `.tpp`)
+- Type-independent utility design
+
+### CPP08 - STL Containers and Algorithms
+
+**Exercises:** easyfind, Span, MutantStack  
+**What you learn:**
+
+- Standard containers usage and trade-offs
+- Iterators and algorithm interoperability
+- Efficient range computations
+- Extending/adapting STL containers
+
+### CPP09 - Practical Data Processing and Performance
+
+**Exercises:** BitcoinExchange, RPN, PmergeMe  
+**What you learn:**
+
+- Input parsing and validation
+- Map-based historical lookup logic
+- Reverse Polish Notation evaluation with stacks
+- Ford-Johnson-inspired merge-insert strategy
+- Comparing behavior and performance across containers
+
+## Build and Run
+
+From any exercise directory:
 
 ```bash
-cd CPP0X/exXX    # Naviguer vers le dossier de l'exercice
-make             # Compiler le programme
-./programme      # Exécuter le programme
+cd CPP0X/exYY
+make
+./<program_name>
 ```
 
-## 📏 Standards
+Common useful targets:
 
-**C++98** • **Norme 42** • **Compilation** : `c++ -Wall -Wextra -Werror -std=c++98`
+```bash
+make
+make clean
+make fclean
+make re
+```
 
----
+## Compilation Standard
 
-*École 42 - Standard C++98*
+- Standard: **C++98**
+- Typical flags: `-Wall -Wextra -Werror -std=c++98`
+
+## Why These Modules Matter
+
+This curriculum builds the mindset needed for robust C++ development:
+
+- Design first, then implementation
+- Strict memory and ownership discipline
+- Correct copy behavior and resource management
+- Reliable error handling
+- Efficient use of generic and STL-based solutions
